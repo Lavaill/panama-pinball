@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Panama Pinball"
+run/main_scene="uid://ljr2y7h7m5gi"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
