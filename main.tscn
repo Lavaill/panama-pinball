@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ljr2y7h7m5gi"]
+[gd_scene load_steps=8 format=3 uid="uid://ljr2y7h7m5gi"]
 
 [ext_resource type="Script" uid="uid://dypiqoyfb6elp" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://msjdkdku8l8t" path="res://ball.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://coj2roy0uyynd" path="res://platform.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c5hybqj7ddkmr" path="res://goal.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://biy1w5v8i3ek7" path="res://collision-walls.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cdabxpyvkghru" path="res://hud.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://c1luu31d78cr5" path="res://pit.tscn" id="7_272bh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_h2yge")
@@ -18,3 +20,11 @@ position = Vector2(874, 264)
 [node name="Goal" parent="." instance=ExtResource("4_1bvp3")]
 
 [node name="CollisionWall" parent="." instance=ExtResource("5_lquwl")]
+
+[node name="HUD" parent="." instance=ExtResource("6_7mycd")]
+
+[node name="Pit" parent="." instance=ExtResource("7_272bh")]
+position = Vector2(1, 658)
+
+[connection signal="goal_registered" from="Goal" to="." method="goal_scored"]
+[connection signal="pit_entered" from="Pit" to="." method="game_over"]
