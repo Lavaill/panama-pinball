@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+signal wall_hit
+
 func _draw():
 	
 	# Warning: Will break if the shape is changed.
@@ -15,4 +17,8 @@ func _draw():
 	
 	#draw_line(Rect2(position, shape),Color.WHITE_SMOKE, true)
 	pass
-	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if(body.name == "Ball"):
+		wall_hit.emit()
