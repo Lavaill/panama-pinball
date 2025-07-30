@@ -7,7 +7,7 @@ func _draw():
 	
 	# Warning: WILL break if shape of the CollisionShape2D is changed.
 	var radius = $CollisionShape2D.shape.radius * $CollisionShape2D.scale.x
-	print(radius)
+	#print(radius)
 	var position : Vector2 = Vector2(0,0)
 	#var collisionRectangleSize := Vector2($CollisionShape2D.)
 	
